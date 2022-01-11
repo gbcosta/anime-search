@@ -4,21 +4,32 @@ import api from "../../api/api";
 export const animesSlice = createSlice({
   name: "animes",
   initialState: {
-    value: [],
+    value: {
+      animes: [],
+      type: "anime",
+    },
   },
   reducers: {
     _getAnimes: (state, action) => {
-      state.value = action.payload;
+      state.value.animes = action.payload;
+    },
+    setType: (state, action) => {
+      state.value.type = action.payload;
     },
   },
 });
 
-export const { _getAnimes } = animesSlice.actions;
+export const { _getAnimes, setType } = animesSlice.actions;
 export default animesSlice.reducer;
 
-export function getAnimes(thingToSearch, type, pages) {
+export function getAnimes(thingToSearch, pages) {
   return async function apiCall(dispatch, getState) {
-    const data = await api.search(thingToSearch, type, pages);
+    const data = await api.search(
+      thingToSearch,
+      getState().animes.value.type,
+      pages
+    );
     dispatch(_getAnimes(data.results));
+    console.log(getState().animes.value);
   };
 }

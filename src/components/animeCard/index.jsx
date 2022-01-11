@@ -18,18 +18,10 @@ import {
   theme,
 } from "./style";
 
-import "@fontsource/overpass/400.css";
-import "@fontsource/overpass/700.css";
-import "@fontsource/overpass/500.css";
+import "@fontsource/overpass/";
 
-export default function AnimeCard() {
-  const [anime, setAnime] = useState();
-  useEffect(() => {
-    api.getAnime("1735", setAnime);
-  }, []);
-
-  if (!anime) return <p>Loading</p>;
-
+export default function AnimeCard(props) {
+  const anime = props.anime;
   return (
     <ThemeProvider theme={theme}>
       <Card
