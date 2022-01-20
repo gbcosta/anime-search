@@ -4,7 +4,7 @@ import CharacterCard from "../components/characterCard";
 import { Typography, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 
-export default function AnimeList(props) {
+export default function AnimeList() {
   const animes = useSelector((state) => state.animes.value.animes);
   const type = useSelector((state) => state.animes.value.type);
 

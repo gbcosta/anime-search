@@ -1,3 +1,7 @@
+<div align="center">
+  <img alt="DeviceMashups" src="./images/home.png" />
+</div>
+
 # Anime Search
 
 this project was created for fun and to study react, redux and materoal UI, so i hope you enjoy like me
@@ -22,6 +26,26 @@ This project was created to learn and have fun so thanks for your time.
 - CSS3
 - vscode
 - Jikan API
+
+### Material UI
+
+I used Material UI to Create a responsive interface
+
+#### Desktop
+
+<div align="center">
+  <img alt="DeviceMashups" src="./images/animeList.png" />
+</div>
+
+#### Mobile
+
+<div align="center">
+  <img alt="DeviceMashups" src="./images/animeListGrid.png" />
+</div>
+
+<div align="center">
+  <img alt="DeviceMashups" src="./images/animeListGrid2.png" />
+</div>
 
 ## Getting Started
 

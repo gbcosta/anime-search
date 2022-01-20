@@ -2,6 +2,16 @@ import React from "react";
 import { Box, Pagination } from "@mui/material";
 import AnimeImage from "../images/original.gif";
 import SearchInput from "../components/searchInput";
+import { styled } from "@mui/material/styles";
+
+const ImgStyled = styled("img")(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    width: 340,
+  },
+  [theme.breakpoints.up("sm")]: {
+    width: 540,
+  },
+}));
 
 export default function Home(props) {
   return (
@@ -14,8 +24,10 @@ export default function Home(props) {
         alignItems="center"
         gap={10}
         paddingTop="32px"
+        mr={4}
+        ml={4}
       >
-        <img src={AnimeImage} alt="" width={540} />
+        <ImgStyled src={AnimeImage} alt="Banner" />
         <SearchInput
           iconColor="#000000"
           inputColor="rgb(255, 255, 255)"
