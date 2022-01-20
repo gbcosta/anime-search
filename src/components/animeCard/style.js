@@ -1,10 +1,7 @@
 import { styled, createTheme } from "@mui/material/styles";
 import { CardContent, Typography, Box } from "@mui/material/";
 
-const textColor = "hsl(209, 70%, 28%)";
-const randomColors = ["#1ea2a4", "#e35259", "#6a9176", "#f25b86", "#2a2a2a"];
-const randomColor =
-  randomColors[Math.floor(Math.random() * randomColors.length)];
+const textColor = "#222";
 
 export const theme = createTheme({
   components: {
@@ -44,27 +41,7 @@ export const CardContentNoPadding = styled(CardContent)(`
 `);
 
 export const SynopsisTypography = styled(Typography)(({ theme }) => ({
-  fontSize: "0.6875rem",
-  color: textColor,
-  paddingRight: "1rem",
-}));
-
-export const EpisodesTypography = styled(Typography)(({ theme }) => ({
   fontSize: "0.75rem",
-  color: textColor,
-  paddingRight: "1rem",
-  fontWeight: 500,
-}));
-
-export const AiredTypography = styled(Typography)(({ theme }) => ({
-  fontSize: "1.125rem",
-  color: textColor,
-  paddingRight: "1rem",
-  fontWeight: 500,
-}));
-
-export const SourceTypography = styled(Typography)(({ theme }) => ({
-  fontSize: "0.6875rem",
   color: textColor,
   paddingRight: "1rem",
 }));
@@ -77,12 +54,6 @@ export const TitleTypography = styled(Typography)(({ theme }) => ({
   fontWeight: 500,
 }));
 
-export const StudioTypography = styled(Typography)(({ theme }) => ({
-  textAlign: "left",
-  color: "#c46315",
-  fontSize: "0.75rem",
-}));
-
 export const ContentWrapper = styled(Box)(`
   position: absolute;
   background-color: rgba(22, 22, 22, 0.9);
@@ -92,36 +63,8 @@ export const ContentWrapper = styled(Box)(`
   left: 0;
 `);
 
-export const Genre = styled(Typography)(({ theme }) => ({
-  backgroundColor: randomColor,
-  height: "20px",
-  borderRadius: 10,
-  padding: "0 1rem 0 1rem",
-  fontSize: "0.75rem",
-  fontWeight: 700,
-  color: "white",
-  lineHeight: "20px",
-  marginLeft: "8px",
-}));
-
 export const AnimeContentWrapper = styled(Box)(`
-  overflow: hidden;
   text-align: left;
   margin-left: 1rem;
   margin-top: 1rem;
-`);
-
-export const GenresWrapper = styled(Box)(`
-  min-height: 44px;
-  margin-top: auto;
-  background-color: #EFF7FB;
-  display: flex;
-  align-items: center;
-`);
-
-export const GenresContainer = styled(Box)(`
-  display: flex;
-  flex-wrap: wrap;
-  max-height: 20px;
-  overflow-y: hidden;
 `);

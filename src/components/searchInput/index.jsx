@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
 import { getAnimes, setType } from "../../store/animesSlice";
 import { BoxStyled } from "./style";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchInput(props) {
   const dispatch = useDispatch();
@@ -14,6 +15,8 @@ export default function SearchInput(props) {
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const navigate = useNavigate();
 
   const handleClickSearchInputOption = (value) => {
     dispatch(setType(value));
@@ -27,6 +30,7 @@ export default function SearchInput(props) {
   const onKeyPressed = (key) => {
     if (key.code == "Enter" && inputValue.length > 3) {
       dispatch(getAnimes(inputValue, "1"));
+      navigate(`/anime`);
     }
   };
 

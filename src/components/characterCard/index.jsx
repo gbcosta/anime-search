@@ -8,12 +8,17 @@ import {
   ContentWrapper,
   AnimeContentWrapper,
   theme,
-} from "./style";
+} from "../animeCard/style";
+
+import { TypeStyle } from "./styles";
 
 import "@fontsource/overpass/";
 
-export default function AnimeCard(props) {
-  const anime = props.anime;
+export default function CharacterCard(props) {
+  const character = props.anime;
+  const typeAnimeExist = character?.anime.length != 0 ? true : false;
+  const typeMangaExist = character?.manga.length != 0 ? true : false;
+
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -24,10 +29,9 @@ export default function AnimeCard(props) {
           justifyContent: "center",
         }}
         onClick={() => {
-          window.open(anime?.url);
+          window.open(character?.url);
         }}
       >
-        {" "}
         <Card
           sx={{
             display: "flex",
@@ -43,13 +47,13 @@ export default function AnimeCard(props) {
           >
             <CardMedia
               component="img"
-              image={anime?.image_url}
+              image={character?.image_url}
               sx={{ height: 265, width: 178 }}
             />
             <ContentWrapper>
               <Box sx={{ padding: "0.75rem" }}>
                 <TitleTypography component="div">
-                  {anime?.title}
+                  {character?.name}
                 </TitleTypography>
               </Box>
             </ContentWrapper>
@@ -63,8 +67,15 @@ export default function AnimeCard(props) {
             }}
           >
             <AnimeContentWrapper>
+              <TypeStyle>{typeMangaExist ? "manga" : ""}</TypeStyle>
               <SynopsisTypography component="div">
-                {anime?.synopsis}
+                {typeMangaExist ? character?.manga[0].name : ""}
+              </SynopsisTypography>
+              <TypeStyle sx={{ paddingTop: typeMangaExist ? 4 : 0 }}>
+                {typeAnimeExist ? "anime" : ""}
+              </TypeStyle>
+              <SynopsisTypography component="div">
+                {typeAnimeExist != 0 ? character?.anime[0].name : ""}
               </SynopsisTypography>
             </AnimeContentWrapper>
           </CardContentNoPadding>

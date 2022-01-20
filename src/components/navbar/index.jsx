@@ -7,6 +7,8 @@ import { ToolbarButton } from "./style";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
+import { useNavigate, Link } from "react-router-dom";
+
 import "@fontsource/overpass";
 
 export const theme = createTheme({
@@ -16,6 +18,8 @@ export const theme = createTheme({
 });
 
 export default function Navbar(props) {
+  const navigate = useNavigate();
+
   const renderSearchInput = props.searchInput ? (
     <SearchInput
       iconColor="#fff"
@@ -41,7 +45,11 @@ export default function Navbar(props) {
             sx={{ display: "flex", alignItems: "center" }}
             maxWidth="lg"
           >
-            <ToolbarButton>Home</ToolbarButton>
+            <ToolbarButton>
+              <Link to="/" className="link" style={{ textDecoration: "none" }}>
+                Home
+              </Link>
+            </ToolbarButton>
 
             <Box sx={{ flexGrow: 1 }} />
             {renderSearchInput}
@@ -53,7 +61,11 @@ export default function Navbar(props) {
               >
                 <LinkedInIcon sx={{ color: "black" }} />
               </a>
-              <a href="https://github.com/" target="_blank" rel="noreferrer">
+              <a
+                href="https://github.com/gbcosta"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <GitHubIcon sx={{ color: "black" }} />
               </a>
             </Box>
