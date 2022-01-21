@@ -17,3 +17,7 @@ body {
 .link:visited {
   color: inherit;
 }
+
+p:first-letter {
+  text-transform: capitalize;
+}

@@ -54,8 +54,9 @@ export default function AnimeList() {
         component="div"
         gutterBottom
         sx={{ color: "#c7c7c7", margin: "2rem" }}
+        className={"first-letter-capitalize"}
       >
-        Animes
+        {type}
       </Typography>
       <Grid container spacing={2}>
         {animesCard()}
